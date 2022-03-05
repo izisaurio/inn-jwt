@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d18489753398e2aa4b92e671bdc71a7a",
+    "packages": [
+        {
+            "name": "izisaurio/base64-url",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/izisaurio/base64-url.git",
+                "reference": "cd67c5eabf21ff44de86804700dac91061e49e24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/izisaurio/base64-url/zipball/cd67c5eabf21ff44de86804700dac91061e49e24",
+                "reference": "cd67c5eabf21ff44de86804700dac91061e49e24",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Inn\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "izisaurio",
+                    "email": "izi.isaac@gmail.com"
+                }
+            ],
+            "description": "String to Base64 Url safe",
+            "support": {
+                "issues": "https://github.com/izisaurio/base64-url/issues",
+                "source": "https://github.com/izisaurio/base64-url/tree/1.0.0"
+            },
+            "time": "2022-03-05T21:14:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
