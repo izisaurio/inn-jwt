@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "izisaurio/base64-url",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/izisaurio/base64-url.git",
-                "reference": "cd67c5eabf21ff44de86804700dac91061e49e24"
+                "reference": "be0c0352d7e38c1795dc38ee7224bee9f1780f1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/izisaurio/base64-url/zipball/cd67c5eabf21ff44de86804700dac91061e49e24",
-                "reference": "cd67c5eabf21ff44de86804700dac91061e49e24",
+                "url": "https://api.github.com/repos/izisaurio/base64-url/zipball/be0c0352d7e38c1795dc38ee7224bee9f1780f1c",
+                "reference": "be0c0352d7e38c1795dc38ee7224bee9f1780f1c",
                 "shasum": ""
             },
             "type": "library",
@@ -39,9 +39,9 @@
             "description": "String to Base64 Url safe",
             "support": {
                 "issues": "https://github.com/izisaurio/base64-url/issues",
-                "source": "https://github.com/izisaurio/base64-url/tree/1.0.0"
+                "source": "https://github.com/izisaurio/base64-url/tree/1.0.1"
             },
-            "time": "2022-03-05T21:14:37+00:00"
+            "time": "2022-03-05T23:18:45+00:00"
         }
     ],
     "packages-dev": [],

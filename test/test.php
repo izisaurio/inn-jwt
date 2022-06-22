@@ -29,3 +29,7 @@ var_dump($decoded->validate());
 sleep(4);
 
 var_dump($decoded->validate());
+
+$invalid = new Jwt('SECOND_SECRET');
+$decodedInvalid = $invalid->decode('invalid token');
+var_dump($decodedInvalid->validate(), $decodedInvalid->payload);

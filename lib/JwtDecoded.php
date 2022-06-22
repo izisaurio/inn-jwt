@@ -27,6 +27,14 @@ class JwtDecoded
 	private $token;
 
 	/**
+	 * Valid token
+	 *
+	 * @access	private
+	 * @var		bool
+	 */
+	private $isValid;
+
+	/**
 	 * Header
 	 *
 	 * @access  private
@@ -77,12 +85,15 @@ class JwtDecoded
 	{
 		$this->jwt = $jwt;
 		$this->token = $token;
-		list($header, $payload, $signature) = explode('.', $token);
-		$this->headerEncoded = $header;
-		$this->payloadEncoded = $payload;
-		$this->header = \json_decode(Base64Url::decode($header));
-		$this->payload = \json_decode(Base64Url::decode($payload));
-		$this->signature = $signature;
+		$this->validateToken();
+		if ($this->isValid) {
+			list($header, $payload, $signature) = explode('.', $token);
+			$this->headerEncoded = $header;
+			$this->payloadEncoded = $payload;
+			$this->header = \json_decode(Base64Url::decode($header));
+			$this->payload = \json_decode(Base64Url::decode($payload));
+			$this->signature = $signature;
+		}
 	}
 
 	/**
@@ -93,12 +104,7 @@ class JwtDecoded
 	 */
 	public function validate()
 	{
-		if (
-			preg_match(
-				'/^[a-zA-Z0-9\-\_\=]+\.[a-zA-Z0-9\-\_\=]+\.[a-zA-Z0-9\-\_\=]+$/',
-				$this->token
-			) !== 1
-		) {
+		if (!$this->isValid) {
 			return false;
 		}
 		$signature = hash_hmac(
@@ -117,5 +123,19 @@ class JwtDecoded
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Checks if token's format is valid
+	 *
+	 * @access	private
+	 */
+	private function validateToken()
+	{
+		$this->isValid =
+			preg_match(
+				'/^[a-zA-Z0-9\-\_\=]+\.[a-zA-Z0-9\-\_\=]+\.[a-zA-Z0-9\-\_\=]+$/',
+				$this->token
+			) === 1;
 	}
 }
