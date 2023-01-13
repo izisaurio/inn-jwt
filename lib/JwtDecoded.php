@@ -116,7 +116,7 @@ class JwtDecoded
 		if (!\hash_equals(Base64URL::encode($signature), $this->signature)) {
 			return false;
 		}
-		if (isset($this->payload->nbf) && time() <= $this->payload->nbf) {
+		if (isset($this->payload->nbf) && time() < $this->payload->nbf) {
 			return false;
 		}
 		if (isset($this->payload->exp) && time() >= $this->payload->exp) {
