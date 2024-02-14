@@ -35,6 +35,14 @@ class JwtDecoded
 	private $isValid;
 
 	/**
+	 * Validation error detected empty string when no error is present
+	 * 
+	 * @access  public
+	 * @var     string	 
+	 */
+	public $error = '';
+
+	/**
 	 * Header
 	 *
 	 * @access  private
@@ -70,7 +78,7 @@ class JwtDecoded
 	 * Decoded payload
 	 *
 	 * @access  public
-	 * @var     array
+	 * @var     \stdClass
 	 */
 	public $payload;
 
@@ -105,6 +113,7 @@ class JwtDecoded
 	public function validate()
 	{
 		if (!$this->isValid) {
+			$this->error = 'Invalid token format';
 			return false;
 		}
 		$signature = hash_hmac(
@@ -114,12 +123,15 @@ class JwtDecoded
 			true
 		);
 		if (!\hash_equals(Base64URL::encode($signature), $this->signature)) {
+			$this->error = 'Invalid signature';
 			return false;
 		}
 		if (isset($this->payload->nbf) && time() < $this->payload->nbf) {
+			$this->error = 'Token not yet valid';
 			return false;
 		}
 		if (isset($this->payload->exp) && time() >= $this->payload->exp) {
+			$this->error = 'Token expired';
 			return false;
 		}
 		return true;

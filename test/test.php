@@ -20,16 +20,16 @@ $decoded = $jwt->decode($token);
 
 var_dump($decoded);
 
-var_dump($decoded->validate());
+var_dump($decoded->validate(), $decoded->error);
 
 sleep(4);
 
-var_dump($decoded->validate());
+var_dump($decoded->validate(), $decoded->error);
 
 sleep(4);
 
-var_dump($decoded->validate());
+var_dump($decoded->validate(), $decoded->error);
 
 $invalid = new Jwt('SECOND_SECRET');
 $decodedInvalid = $invalid->decode('invalid token');
-var_dump($decodedInvalid->validate(), $decodedInvalid->payload);
+var_dump($decodedInvalid->validate(), $decodedInvalid->payload, $decodedInvalid->error);
